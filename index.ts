@@ -13,7 +13,7 @@ let serverListings: ServerListings = {};
 let cache: string;
 let cacheTime = 0;
 const server = Bun.serve({
-  port: 3000,
+  port: 80,
   async fetch(request) {
     if (request.headers.get("x-api-key") !== Bun.env.API_KEY) {
       return new Response("Unauthorized", { status: 401 });
