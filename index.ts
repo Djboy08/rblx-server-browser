@@ -37,7 +37,6 @@ const server = Bun.serve({
 
     if (url.pathname === "/update") {
       const body = await request.json();
-      console.log(body);
       serverListings[body.jobid] = {
         region: body.region,
         playerCount: body.playerCount,
