@@ -1,5 +1,5 @@
 {
-  "name": "server-browser",
+  "name": "rblx-server-browser",
   "module": "index.ts",
   "type": "module",
   "devDependencies": {
