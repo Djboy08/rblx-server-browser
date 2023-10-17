@@ -41,13 +41,21 @@ const server = Bun.serve({
         region: body.region,
         playerCount: body.playerCount,
       };
-      return new Response("Updated");
+      if (body.jobid in serverListings) {
+        return new Response("Updated");
+      } else {
+        return new Response("Failed to update");
+      }
     }
 
     if (url.pathname === "/close") {
       const body = await request.json();
       delete serverListings[body.jobid];
-      return new Response("Closed");
+      if (body.jobid in serverListings === false) {
+        return new Response("Closed");
+      } else {
+        return new Response("Failed to close");
+      }
     }
 
     return new Response("Unknown Path", { status: 404 });
