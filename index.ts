@@ -22,7 +22,7 @@ setInterval(() => {
       ([_, listing]) => now - listing.updatedAt < 1000 * 60 * 20
     )
   );
-}, 1000 * 60 * 20);
+}, 1000 * 60 * 6);
 
 const server = Bun.serve({
   port: 80,
