@@ -3,6 +3,7 @@ type ServerListing = {
   region: string;
   playerCount: number;
   updatedAt: number;
+  metadata?: any;
 };
 
 type ServerListings = {
@@ -40,6 +41,7 @@ const server = Bun.serve({
             jobid,
             region: listing.region,
             playerCount: listing.playerCount,
+            metadata: listing.metadata || null,
           }))
         );
         cacheTime = Date.now();
@@ -54,6 +56,7 @@ const server = Bun.serve({
         region: body.region,
         playerCount: body.playerCount,
         updatedAt: Date.now(),
+        metadata: body.metadata || null,
       };
       if (body.jobid in serverListings) {
         return new Response("Updated");
